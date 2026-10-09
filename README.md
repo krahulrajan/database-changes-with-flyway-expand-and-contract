@@ -13,3 +13,11 @@ Flyway automatically creates and manages a tracking table.
 <code>docker exec -it local-postgres psql -U postgres -d enterprisedb -c "SELECT installed_rank, version, description, type, success FROM flyway_schema_history;"</code>
 <br>
 
+Flyway looks inside src/main/resources/db/migration/ for versioned scripts (V1__..., V2__...).<br>
+It executes those scripts in exact alphabetical/numerical order before Spring finishes booting up and before Hibernate's validation check runs.<br>
+It logs a cryptographic SHA-256 hash of each script into flyway_schema_history. If anyone modifies an applied script, Flyway halts boot-up to prevent data corruption.<br>
+
+In entity backward compatibility bridge is built using two specific software patterns: Dual-Write and Fallback-Read.
+
+
+

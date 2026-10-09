@@ -9,5 +9,7 @@ The Expand and Contract (Parallel Run) pattern is the enterprise standard for ze
 <br>
 
 Flyway automatically creates and manages a tracking table.
+<br>
 <code>docker exec -it local-postgres psql -U postgres -d enterprisedb -c "SELECT installed_rank, version, description, type, success FROM flyway_schema_history;"</code>
+<br>
 

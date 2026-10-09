@@ -21,3 +21,9 @@ In entity backward compatibility bridge is built using two specific software pat
 
 
 
+
+### Things to be taken care
+1. Create two seperate database roles for mirgration and db management
+2. Disable flyway
+3. Configurations for avoiding data lose. 
+4. Trigger automated DB snapshot / WAL backup.
